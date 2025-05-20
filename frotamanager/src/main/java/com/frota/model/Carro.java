@@ -1,4 +1,4 @@
-package com.frota.src.model;
+package com.frota.model;
 
 public class Carro extends Veiculo {
     public Carro(String placa, String marca, String modelo) {

@@ -2,8 +2,8 @@ package com.frota;
 
 import javax.swing.JOptionPane;
 
-import com.frota.src.model.Carro;
-import com.frota.src.model.Veiculo;
+import com.frota.model.Carro;
+import com.frota.model.Veiculo;
 
 
 public class Main {
