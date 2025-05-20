@@ -1,4 +1,4 @@
-package main.model;
+package com.frota.src.model;
 
 public abstract class Veiculo {
     private String placa;

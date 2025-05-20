@@ -1,7 +1,4 @@
-package main.model;
-import main.model.Veiculo;
-import java.lang.Override;
-
+package com.frota.src.model;
 
 public class Carro extends Veiculo {
     public Carro(String placa, String marca, String modelo) {

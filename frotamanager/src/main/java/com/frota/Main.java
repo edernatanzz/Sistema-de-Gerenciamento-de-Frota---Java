@@ -1,10 +1,12 @@
-package main;
+package com.frota;
 
-import javax.swing.*;
-import main.model.Veiculo;
-import main.model.Carro;
+import javax.swing.JOptionPane;
 
-public class App {
+import com.frota.src.model.Carro;
+import com.frota.src.model.Veiculo;
+
+
+public class Main {
     public static void main(String[] args) {
         Veiculo meuCarro = new Carro("ABC1234", "Toyota", "Corolla");
         
