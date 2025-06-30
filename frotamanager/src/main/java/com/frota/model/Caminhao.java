@@ -1,14 +1,19 @@
 package com.frota.model;
 
+import com.frota.model.enums.StatusVeiculo;
+
 /**
  * Classe que representa um caminhão da frota.
  * Herda de Veiculo e implementa Rastreavel.
  */
-public class Caminhao extends Veiculo implements Rastreavel {
+public class Caminhao extends Veiculo implements Rastreavel, Manutencivel {
     private int numeroEixos;
     private double capacidadeCarga;
     private double comprimento;
     private String localizacaoAtual;
+    private boolean manutencaoPendente;
+    private java.time.LocalDate dataUltimaManutencao;
+    private StatusVeiculo status;
 
     /**
      * Construtor do Caminhao.
@@ -26,6 +31,9 @@ public class Caminhao extends Veiculo implements Rastreavel {
         this.capacidadeCarga = capacidadeCarga;
         this.comprimento = comprimento;
         this.localizacaoAtual = "";
+        this.status = StatusVeiculo.DISPONIVEL;
+        this.manutencaoPendente = false;
+        this.dataUltimaManutencao = null;
     }
 
     public int getNumeroEixos() {
@@ -33,6 +41,9 @@ public class Caminhao extends Veiculo implements Rastreavel {
     }
 
     public void setNumeroEixos(int numeroEixos) {
+        if (numeroEixos <= 0) {
+            throw new IllegalArgumentException("Número de eixos deve ser maior que zero");
+        }
         this.numeroEixos = numeroEixos;
     }
 
@@ -41,6 +52,9 @@ public class Caminhao extends Veiculo implements Rastreavel {
     }
 
     public void setCapacidadeCarga(double capacidadeCarga) {
+        if (capacidadeCarga <= 0) {
+            throw new IllegalArgumentException("Capacidade de carga deve ser maior que zero");
+        }
         this.capacidadeCarga = capacidadeCarga;
     }
 
@@ -49,7 +63,18 @@ public class Caminhao extends Veiculo implements Rastreavel {
     }
 
     public void setComprimento(double comprimento) {
+        if (comprimento <= 0) {
+            throw new IllegalArgumentException("Comprimento deve ser maior que zero");
+        }
         this.comprimento = comprimento;
+    }
+
+    public StatusVeiculo getStatus() {
+        return status;
+    }
+
+    public void setStatus(StatusVeiculo status) {
+        this.status = status;
     }
 
     @Override
@@ -69,7 +94,27 @@ public class Caminhao extends Veiculo implements Rastreavel {
     }
 
     @Override
-    public String toString() {
-        return "Caminhão: " + super.toString() + ", Eixos: " + numeroEixos + ", Carga: " + capacidadeCarga + "t, Comprimento: " + comprimento + "m";
+    public void agendarManutencao() {
+        this.manutencaoPendente = true;
     }
-} 
+
+    @Override
+    public boolean verificarManutencaoPendente() {
+        return manutencaoPendente;
+    }
+
+    // Método adicional para registrar conclusão de manutenção
+    public void concluirManutencao() {
+        this.manutencaoPendente = false;
+        this.dataUltimaManutencao = java.time.LocalDate.now();
+    }
+
+    @Override
+    public String toString() {
+        return "Caminhão: " + super.toString() + 
+               ", Eixos: " + numeroEixos + 
+               ", Carga: " + capacidadeCarga + "t" +
+               ", Comprimento: " + comprimento + "m" +
+               ", Status: " + status;
+    }
+}

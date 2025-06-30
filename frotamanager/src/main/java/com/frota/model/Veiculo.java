@@ -5,6 +5,7 @@ package com.frota.model;
  * Define atributos básicos e obriga a implementação do cálculo de custo de manutenção.
  */
 public abstract class Veiculo {
+    private int id;
     private String placa;
     private String marca;
     private String modelo;
@@ -12,12 +13,14 @@ public abstract class Veiculo {
     
     /**
      * Construtor do veículo.
+     * @param id ID do veículo
      * @param placa Placa do veículo
      * @param marca Marca do veículo
      * @param modelo Modelo do veículo
      * @param ano Ano de fabricação do veículo
      */
-    public Veiculo(String placa, String marca, String modelo, int ano) {
+    public Veiculo(int id, String placa, String marca, String modelo, int ano) {
+        this.id = id;
         this.placa = placa;
         this.marca = marca;
         this.modelo = modelo;
@@ -56,6 +59,14 @@ public abstract class Veiculo {
         this.ano = ano;
     }
     
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     /**
      * Método abstrato para calcular o custo de manutenção do veículo.
      * @return custo da manutenção
@@ -64,6 +75,6 @@ public abstract class Veiculo {
     
     @Override
     public String toString() {
-        return marca + " " + modelo + " (Placa: " + placa + ", Ano: " + ano + ")";
+        return "ID: " + id + ", " + marca + " " + modelo + " (Placa: " + placa + ", Ano: " + ano + ")";
     }
 }
