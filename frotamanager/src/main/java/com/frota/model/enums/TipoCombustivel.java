@@ -1,4 +1,4 @@
-package com.frota.enums;
+package com.frota.model.enums;
 /**
  * Enumeração que representa os tipos de combustível dos veículos.
  */

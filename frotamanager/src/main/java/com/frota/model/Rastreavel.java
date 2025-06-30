@@ -1,4 +1,4 @@
-package com.frota.entity;
+package com.frota.model;
 
 /**
  * Interface para veículos rastreáveis.

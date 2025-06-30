@@ -1,4 +1,4 @@
-package com.frota.entity;
+package com.frota.model;
 
 /**
  * Classe abstrata que representa um veículo genérico da frota.
