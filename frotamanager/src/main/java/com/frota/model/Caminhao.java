@@ -25,8 +25,8 @@ public class Caminhao extends Veiculo implements Rastreavel, Manutencivel {
      * @param capacidadeCarga Capacidade de carga em toneladas
      * @param comprimento Comprimento em metros
      */
-    public Caminhao(String placa, String marca, String modelo, int ano, int numeroEixos, double capacidadeCarga, double comprimento) {
-        super(placa, marca, modelo, ano);
+    public Caminhao(int id, String placa, String marca, String modelo, int ano, int numeroEixos, double capacidadeCarga, double comprimento) {
+        super(id, placa, marca, modelo, ano);
         this.numeroEixos = numeroEixos;
         this.capacidadeCarga = capacidadeCarga;
         this.comprimento = comprimento;

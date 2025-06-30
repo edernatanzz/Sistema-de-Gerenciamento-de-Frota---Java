@@ -20,8 +20,8 @@ public class Carro extends Veiculo implements Rastreavel {
      * @param tipoCarroceria Tipo da carroceria
      * @param capacidadeTanque Capacidade do tanque em litros
      */
-    public Carro(String placa, String marca, String modelo, int ano, int numeroPortas, String tipoCarroceria, double capacidadeTanque) {
-        super(placa, marca, modelo, ano);
+    public Carro(int id, String placa, String marca, String modelo, int ano, int numeroPortas, String tipoCarroceria, double capacidadeTanque) {
+        super(id, placa, marca, modelo, ano);
         this.numeroPortas = numeroPortas;
         this.tipoCarroceria = tipoCarroceria;
         this.capacidadeTanque = capacidadeTanque;

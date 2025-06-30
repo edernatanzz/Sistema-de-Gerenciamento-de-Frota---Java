@@ -18,8 +18,8 @@ public class Van extends Veiculo implements Rastreavel {
      * @param capacidadePassageiros Capacidade de passageiros
      * @param possuiAcessibilidade Se possui acessibilidade
      */
-    public Van(String placa, String marca, String modelo, int ano, int capacidadePassageiros, boolean possuiAcessibilidade) {
-        super(placa, marca, modelo, ano);
+    public Van(int id, String placa, String marca, String modelo, int ano, int capacidadePassageiros, boolean possuiAcessibilidade) {
+        super(id, placa, marca, modelo, ano);
         this.capacidadePassageiros = capacidadePassageiros;
         this.possuiAcessibilidade = possuiAcessibilidade;
         this.localizacaoAtual = "";
